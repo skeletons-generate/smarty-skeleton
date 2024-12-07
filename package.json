@@ -1,0 +1,33 @@
+{
+  "name": "pnpm-monorepo",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "dumi dev",
+    "build": " pnpm -r --filter=./packages/* run build",
+    "build:docs": " dumi build",
+    "clean": "pnpm -r --filter=./packages/* run clean",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "pub": "pnpm -r --filter=./packages/* run pub --no-git-checks --registry=https://registry.npmjs.org",
+    "pub:beta": "pnpm run build && npm -r --filter=./packages/* publish --tag beta"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@types/node": "^22.9.0",
+    "lerna": "^6.6.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-packagejson": "^2.5.3",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dumi": "^2.4.13",
+    "standard-version": "^9.5.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

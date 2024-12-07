@@ -1,0 +1,14 @@
+import React from "react";
+const Ske = () => {
+  return (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `<%-rawHtml %>`,
+      }}
+    ></div>
+  );
+};
+
+export default ({ isLoading = true, children }) => {
+  return isLoading ? <Ske /> : children;
+};
