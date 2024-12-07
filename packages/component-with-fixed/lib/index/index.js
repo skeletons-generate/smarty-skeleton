@@ -76,6 +76,7 @@ const r = () => (console.log("ske345456456"), /* @__PURE__ */ o.createElement(
     }
   }
 )), s = ({ isLoading: e = !0, children: d }) => e ? /* @__PURE__ */ o.createElement(i, null) : d, n = { Page1Sub1: t, Page2Sub2: s };
+console.log("123");
 export {
   n as default
 };
