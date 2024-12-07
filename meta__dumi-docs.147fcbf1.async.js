@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunkpnpm_monorepo=self.webpackChunkpnpm_monorepo||[]).push([[783],{32584:function(a,t,n){n.r(t),n.d(t,{demos:function(){return r}});var d=n(75271),e=n(10079),r={}},32015:function(a,t,n){n.r(t),n.d(t,{demos:function(){return r}});var d=n(75271),e=n(60914),r={}},34374:function(a,t,n){n.r(t),n.d(t,{texts:function(){return e}});var d=n(10079);const e=[{value:"\u4F7F\u7528 npm / yarn / pnpm \u5B89\u88C5",paraId:0,tocIndex:1},{value:`npm install @k-maikou/perfect-design
+"use strict";(self.webpackChunkpnpm_monorepo=self.webpackChunkpnpm_monorepo||[]).push([[783],{79433:function(a,t,n){n.r(t),n.d(t,{demos:function(){return r}});var d=n(75271),e=n(75089),r={}},3104:function(a,t,n){n.r(t),n.d(t,{demos:function(){return r}});var d=n(75271),e=n(38219),r={}},14579:function(a,t,n){n.r(t),n.d(t,{texts:function(){return e}});var d=n(75089);const e=[{value:"\u4F7F\u7528 npm / yarn / pnpm \u5B89\u88C5",paraId:0,tocIndex:1},{value:`npm install @k-maikou/perfect-design
 `,paraId:1,tocIndex:1},{value:`yarn add @k-maikou/perfect-design
 `,paraId:2,tocIndex:1},{value:`pnpm install @k-maikou/perfect-design
 `,paraId:3,tocIndex:1},{value:`import Alert from '@k-maikou/perfect-design/es/alert' // \u624B\u52A8\u6309\u9700\u52A0\u8F7D js
@@ -21,4 +21,4 @@ ReactDOM.render(<Alert kind="warning">\u8FD9\u662F\u4E00\u6761\u8B66\u544A\u63D0
 		]
 	]
 }
-`,paraId:10,tocIndex:3}]},34585:function(a,t,n){n.r(t),n.d(t,{texts:function(){return e}});var d=n(60914);const e=[]}}]);
+`,paraId:10,tocIndex:3}]},33892:function(a,t,n){n.r(t),n.d(t,{texts:function(){return e}});var d=n(38219);const e=[]}}]);
