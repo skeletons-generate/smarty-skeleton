@@ -1,7 +1,7 @@
 ---
-title: Perfect Design
+title: Samrty Skeleton
 hero:
-  title: Perfect Design
+  title: Samrty Skeleton
   desc: 文档站点基于 dumi 生成
   actions:
     - text: 快速上手
