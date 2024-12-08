@@ -1,6 +1,6 @@
 {
-  "name": "@smarty-skeleton-test/component-with-fixed",
-  "version": "0.0.29",
+  "name": "@smarty-skeleton/component-with-fixed",
+  "version": "0.0.32",
   "type": "module",
   "files": [
     "dist",
