@@ -18,18 +18,18 @@ export default defineConfig({
   resolve: {
     docDirs: [
       "dumi-docs",
-      "/packages/react-component/src",
+      "/packages/react-components/src",
       "/packages/component-with-fixed/src",
       "/packages/loading-with-cache/src",
     ],
     atomDirs: [
-      { type: "component", dir: "/packages/component-with-fixed/src" },
+      { type: "component", dir: "/packages/react-components/src" },
       { type: "component1", dir: "/packages/loading-with-cache/src" },
     ],
     codeBlockMode: "passive",
   },
   alias: {
-    SmartySkeleton: path.join(__dirname, "packages/component-with-fixed/src"),
+    SmartySkeleton: path.join(__dirname, "packages/react-components/src"),
   },
   themeConfig: {
     name: "smarty skeleton",
