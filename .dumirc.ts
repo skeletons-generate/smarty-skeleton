@@ -18,6 +18,7 @@ export default defineConfig({
   resolve: {
     docDirs: [
       "dumi-docs",
+      "/packages/react-component/src",
       "/packages/component-with-fixed/src",
       "/packages/loading-with-cache/src",
     ],
