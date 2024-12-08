@@ -1,23 +1,22 @@
 var kt = Object.defineProperty;
-var Ut = (O, u, l) => u in O ? kt(O, u, { enumerable: !0, configurable: !0, writable: !0, value: l }) : O[u] = l;
-var k = (O, u, l) => Ut(O, typeof u != "symbol" ? u + "" : u, l);
-import Yt, { useEffect as zt } from "react";
-const Ht = Math.floor(1e3 / 60);
-function Vt(O, u) {
-  const l = new MessageChannel(), m = l.port1, S = l.port2, p = u && u.timeout || -1;
-  let _ = O, b = 0;
-  const I = performance.now();
+var Ut = (P, u, l) => u in P ? kt(P, u, { enumerable: !0, configurable: !0, writable: !0, value: l }) : P[u] = l;
+var k = (P, u, l) => Ut(P, typeof u != "symbol" ? u + "" : u, l);
+const Yt = Math.floor(16.666666666666668);
+function zt(P, u) {
+  const l = new MessageChannel(), g = l.port1, I = l.port2, p = u && u.timeout || -1;
+  let _ = P, b = 0;
+  const S = performance.now();
   let N = 0;
   const B = (h) => {
-    b = h + Ht, _ && m.postMessage("task");
+    b = h + Yt, _ && g.postMessage("task");
   };
-  return S.onmessage = () => {
+  return I.onmessage = () => {
     const h = () => {
       const A = b - performance.now();
       return A > 0 ? A : 0;
     };
     let y = !1;
-    if (p > 0 && (y = performance.now() - I > p), !!_) {
+    if (p > 0 && (y = performance.now() - S > p), !!_) {
       if (h() <= 1 && !y) {
         N = requestAnimationFrame(B);
         return;
@@ -29,13 +28,13 @@ function Vt(O, u) {
     }
   }, N = requestAnimationFrame(B), N;
 }
-const Qt = () => typeof requestIdleCallback == "function" ? requestIdleCallback : Vt, Gt = Qt();
+const Ht = () => typeof requestIdleCallback == "function" ? requestIdleCallback : zt, Vt = Ht();
 var ae = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-function Kt(O) {
-  return O && O.__esModule && Object.prototype.hasOwnProperty.call(O, "default") ? O.default : O;
+function Qt(P) {
+  return P && P.__esModule && Object.prototype.hasOwnProperty.call(P, "default") ? P.default : P;
 }
-function se(O) {
-  throw new Error('Could not dynamically require "' + O + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
+function se(P) {
+  throw new Error('Could not dynamically require "' + P + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
 var We = { exports: {} };
 /*!
@@ -44,55 +43,55 @@ var We = { exports: {} };
     https://localforage.github.io/localForage
     (c) 2013-2017 Mozilla, Apache License 2.0
 */
-(function(O, u) {
+(function(P, u) {
   (function(l) {
-    O.exports = l();
+    P.exports = l();
   })(function() {
-    return function l(m, S, p) {
+    return function l(g, I, p) {
       function _(N, B) {
-        if (!S[N]) {
-          if (!m[N]) {
+        if (!I[N]) {
+          if (!g[N]) {
             var h = typeof se == "function" && se;
             if (!B && h) return h(N, !0);
             if (b) return b(N, !0);
             var y = new Error("Cannot find module '" + N + "'");
             throw y.code = "MODULE_NOT_FOUND", y;
           }
-          var A = S[N] = { exports: {} };
-          m[N][0].call(A.exports, function(L) {
-            var W = m[N][1][L];
-            return _(W || L);
-          }, A, A.exports, l, m, S, p);
+          var A = I[N] = { exports: {} };
+          g[N][0].call(A.exports, function(O) {
+            var W = g[N][1][O];
+            return _(W || O);
+          }, A, A.exports, l, g, I, p);
         }
-        return S[N].exports;
+        return I[N].exports;
       }
-      for (var b = typeof se == "function" && se, I = 0; I < p.length; I++) _(p[I]);
+      for (var b = typeof se == "function" && se, S = 0; S < p.length; S++) _(p[S]);
       return _;
-    }({ 1: [function(l, m, S) {
+    }({ 1: [function(l, g, I) {
       (function(p) {
         var _ = p.MutationObserver || p.WebKitMutationObserver, b;
         if (_) {
-          var I = 0, N = new _(L), B = p.document.createTextNode("");
+          var S = 0, N = new _(O), B = p.document.createTextNode("");
           N.observe(B, {
             characterData: !0
           }), b = function() {
-            B.data = I = ++I % 2;
+            B.data = S = ++S % 2;
           };
         } else if (!p.setImmediate && typeof p.MessageChannel < "u") {
           var h = new p.MessageChannel();
-          h.port1.onmessage = L, b = function() {
+          h.port1.onmessage = O, b = function() {
             h.port2.postMessage(0);
           };
         } else "document" in p && "onreadystatechange" in p.document.createElement("script") ? b = function() {
           var C = p.document.createElement("script");
           C.onreadystatechange = function() {
-            L(), C.onreadystatechange = null, C.parentNode.removeChild(C), C = null;
+            O(), C.onreadystatechange = null, C.parentNode.removeChild(C), C = null;
           }, p.document.documentElement.appendChild(C);
         } : b = function() {
-          setTimeout(L, 0);
+          setTimeout(O, 0);
         };
         var y, A = [];
-        function L() {
+        function O() {
           y = !0;
           for (var C, V, M = A.length; M; ) {
             for (V = A, A = [], C = -1; ++C < M; )
@@ -101,17 +100,17 @@ var We = { exports: {} };
           }
           y = !1;
         }
-        m.exports = W;
+        g.exports = W;
         function W(C) {
           A.push(C) === 1 && !y && b();
         }
       }).call(this, typeof ae < "u" ? ae : typeof self < "u" ? self : typeof window < "u" ? window : {});
-    }, {}], 2: [function(l, m, S) {
+    }, {}], 2: [function(l, g, I) {
       var p = l(1);
       function _() {
       }
-      var b = {}, I = ["REJECTED"], N = ["FULFILLED"], B = ["PENDING"];
-      m.exports = h;
+      var b = {}, S = ["REJECTED"], N = ["FULFILLED"], B = ["PENDING"];
+      g.exports = h;
       function h(v) {
         if (typeof v != "function")
           throw new TypeError("resolver must be a function");
@@ -119,19 +118,19 @@ var We = { exports: {} };
       }
       h.prototype.catch = function(v) {
         return this.then(null, v);
-      }, h.prototype.then = function(v, T) {
-        if (typeof v != "function" && this.state === N || typeof T != "function" && this.state === I)
+      }, h.prototype.then = function(v, R) {
+        if (typeof v != "function" && this.state === N || typeof R != "function" && this.state === S)
           return this;
         var E = new this.constructor(_);
         if (this.state !== B) {
-          var D = this.state === N ? v : T;
+          var D = this.state === N ? v : R;
           A(E, D, this.outcome);
         } else
-          this.queue.push(new y(E, v, T));
+          this.queue.push(new y(E, v, R));
         return E;
       };
-      function y(v, T, E) {
-        this.promise = v, typeof T == "function" && (this.onFulfilled = T, this.callFulfilled = this.otherCallFulfilled), typeof E == "function" && (this.onRejected = E, this.callRejected = this.otherCallRejected);
+      function y(v, R, E) {
+        this.promise = v, typeof R == "function" && (this.onFulfilled = R, this.callFulfilled = this.otherCallFulfilled), typeof E == "function" && (this.onRejected = E, this.callRejected = this.otherCallRejected);
       }
       y.prototype.callFulfilled = function(v) {
         b.resolve(this.promise, v);
@@ -142,44 +141,44 @@ var We = { exports: {} };
       }, y.prototype.otherCallRejected = function(v) {
         A(this.promise, this.onRejected, v);
       };
-      function A(v, T, E) {
+      function A(v, R, E) {
         p(function() {
           var D;
           try {
-            D = T(E);
+            D = R(E);
           } catch ($) {
             return b.reject(v, $);
           }
           D === v ? b.reject(v, new TypeError("Cannot resolve promise with itself")) : b.resolve(v, D);
         });
       }
-      b.resolve = function(v, T) {
-        var E = C(L, T);
+      b.resolve = function(v, R) {
+        var E = C(O, R);
         if (E.status === "error")
           return b.reject(v, E.value);
         var D = E.value;
         if (D)
           W(v, D);
         else {
-          v.state = N, v.outcome = T;
+          v.state = N, v.outcome = R;
           for (var $ = -1, U = v.queue.length; ++$ < U; )
-            v.queue[$].callFulfilled(T);
+            v.queue[$].callFulfilled(R);
         }
         return v;
-      }, b.reject = function(v, T) {
-        v.state = I, v.outcome = T;
+      }, b.reject = function(v, R) {
+        v.state = S, v.outcome = R;
         for (var E = -1, D = v.queue.length; ++E < D; )
-          v.queue[E].callRejected(T);
+          v.queue[E].callRejected(R);
         return v;
       };
-      function L(v) {
-        var T = v && v.then;
-        if (v && (typeof v == "object" || typeof v == "function") && typeof T == "function")
+      function O(v) {
+        var R = v && v.then;
+        if (v && (typeof v == "object" || typeof v == "function") && typeof R == "function")
           return function() {
-            T.apply(v, arguments);
+            R.apply(v, arguments);
           };
       }
-      function W(v, T) {
+      function W(v, R) {
         var E = !1;
         function D(z) {
           E || (E = !0, b.reject(v, z));
@@ -188,15 +187,15 @@ var We = { exports: {} };
           E || (E = !0, b.resolve(v, z));
         }
         function U() {
-          T($, D);
+          R($, D);
         }
         var Y = C(U);
         Y.status === "error" && D(Y.value);
       }
-      function C(v, T) {
+      function C(v, R) {
         var E = {};
         try {
-          E.value = v(T), E.status = "success";
+          E.value = v(R), E.status = "success";
         } catch (D) {
           E.status = "error", E.value = D;
         }
@@ -208,12 +207,12 @@ var We = { exports: {} };
       }
       h.reject = M;
       function M(v) {
-        var T = new this(_);
-        return b.reject(T, v);
+        var R = new this(_);
+        return b.reject(R, v);
       }
       h.all = Z;
       function Z(v) {
-        var T = this;
+        var R = this;
         if (Object.prototype.toString.call(v) !== "[object Array]")
           return this.reject(new TypeError("must be an array"));
         var E = v.length, D = !1;
@@ -223,7 +222,7 @@ var We = { exports: {} };
           Q(v[Y], Y);
         return z;
         function Q(ee, ne) {
-          T.resolve(ee).then(ue, function(J) {
+          R.resolve(ee).then(ue, function(J) {
             D || (D = !0, b.reject(z, J));
           });
           function ue(J) {
@@ -233,7 +232,7 @@ var We = { exports: {} };
       }
       h.race = j;
       function j(v) {
-        var T = this;
+        var R = this;
         if (Object.prototype.toString.call(v) !== "[object Array]")
           return this.reject(new TypeError("must be an array"));
         var E = v.length, D = !1;
@@ -243,18 +242,18 @@ var We = { exports: {} };
           Y(v[$]);
         return U;
         function Y(z) {
-          T.resolve(z).then(function(Q) {
+          R.resolve(z).then(function(Q) {
             D || (D = !0, b.resolve(U, Q));
           }, function(Q) {
             D || (D = !0, b.reject(U, Q));
           });
         }
       }
-    }, { 1: 1 }], 3: [function(l, m, S) {
+    }, { 1: 1 }], 3: [function(l, g, I) {
       (function(p) {
         typeof p.Promise != "function" && (p.Promise = l(2));
       }).call(this, typeof ae < "u" ? ae : typeof self < "u" ? self : typeof window < "u" ? window : {});
-    }, { 2: 2 }], 4: [function(l, m, S) {
+    }, { 2: 2 }], 4: [function(l, g, I) {
       var p = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(e) {
         return typeof e;
       } : function(e) {
@@ -280,10 +279,10 @@ var We = { exports: {} };
           return;
         }
       }
-      var I = b();
+      var S = b();
       function N() {
         try {
-          if (!I || !I.open)
+          if (!S || !S.open)
             return !1;
           var e = typeof openDatabase < "u" && /(Safari|iPhone|iPad|iPod)/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent) && !/BlackBerry/.test(navigator.platform), r = typeof fetch == "function" && fetch.toString().indexOf("[native code") !== -1;
           return (!e || r) && typeof indexedDB < "u" && // some outdated implementations of IDB that appear on Samsung
@@ -319,7 +318,7 @@ var We = { exports: {} };
       function A(e, r, t) {
         typeof r == "function" && e.then(r), typeof t == "function" && e.catch(t);
       }
-      function L(e) {
+      function O(e) {
         return typeof e != "string" && (console.warn(e + " used as a key, but it is not a string."), e = String(e)), e;
       }
       function W() {
@@ -327,7 +326,7 @@ var We = { exports: {} };
           return arguments[arguments.length - 1];
       }
       var C = "local-forage-detect-blob-support", V = void 0, M = {}, Z = Object.prototype.toString, j = "readonly", v = "readwrite";
-      function T(e) {
+      function R(e) {
         for (var r = e.length, t = new ArrayBuffer(r), o = new Uint8Array(t), i = 0; i < r; i++)
           o[i] = e.charCodeAt(i);
         return t;
@@ -377,7 +376,7 @@ var We = { exports: {} };
               return t(e.db);
           var i = [e.name];
           r && i.push(e.version);
-          var n = I.open.apply(I, i);
+          var n = S.open.apply(S, i);
           r && (n.onupgradeneeded = function(a) {
             var s = n.result;
             try {
@@ -431,7 +430,7 @@ var We = { exports: {} };
         });
       }
       function J(e) {
-        var r = T(atob(e.data));
+        var r = R(atob(e.data));
         return B([r], { type: e.type });
       }
       function ye(e) {
@@ -515,15 +514,15 @@ var We = { exports: {} };
           return t.db = d, ne(t, r._defaultConfig.version) ? ee(t) : d;
         }).then(function(d) {
           t.db = i.db = d, r._dbInfo = t;
-          for (var g = 0; g < c.length; g++) {
-            var w = c[g];
+          for (var m = 0; m < c.length; m++) {
+            var w = c[m];
             w !== r && (w._dbInfo.db = t.db, w._dbInfo.version = t.version);
           }
         });
       }
       function He(e, r) {
         var t = this;
-        e = L(e);
+        e = O(e);
         var o = new h(function(i, n) {
           t.ready().then(function() {
             G(t._dbInfo, j, function(a, s) {
@@ -554,19 +553,19 @@ var We = { exports: {} };
               try {
                 var f = s.objectStore(t._dbInfo.storeName), c = f.openCursor(), d = 1;
                 c.onsuccess = function() {
-                  var g = c.result;
-                  if (g) {
-                    var w = g.value;
+                  var m = c.result;
+                  if (m) {
+                    var w = m.value;
                     ye(w) && (w = J(w));
-                    var R = e(w, g.key, d++);
-                    R !== void 0 ? i(R) : g.continue();
+                    var T = e(w, m.key, d++);
+                    T !== void 0 ? i(T) : m.continue();
                   } else
                     i();
                 }, c.onerror = function() {
                   n(c.error);
                 };
-              } catch (g) {
-                n(g);
+              } catch (m) {
+                n(m);
               }
             });
           }).catch(n);
@@ -575,7 +574,7 @@ var We = { exports: {} };
       }
       function Qe(e, r, t) {
         var o = this;
-        e = L(e);
+        e = O(e);
         var i = new h(function(n, a) {
           var s;
           o.ready().then(function() {
@@ -587,17 +586,17 @@ var We = { exports: {} };
               if (c)
                 return a(c);
               try {
-                var g = d.objectStore(o._dbInfo.storeName);
+                var m = d.objectStore(o._dbInfo.storeName);
                 f === null && (f = void 0);
-                var w = g.put(f, e);
+                var w = m.put(f, e);
                 d.oncomplete = function() {
                   f === void 0 && (f = null), n(f);
                 }, d.onabort = d.onerror = function() {
-                  var R = w.error ? w.error : w.transaction.error;
-                  a(R);
+                  var T = w.error ? w.error : w.transaction.error;
+                  a(T);
                 };
-              } catch (R) {
-                a(R);
+              } catch (T) {
+                a(T);
               }
             });
           }).catch(a);
@@ -606,7 +605,7 @@ var We = { exports: {} };
       }
       function Ge(e, r) {
         var t = this;
-        e = L(e);
+        e = O(e);
         var o = new h(function(i, n) {
           t.ready().then(function() {
             G(t._dbInfo, v, function(a, s) {
@@ -686,17 +685,17 @@ var We = { exports: {} };
               try {
                 var f = s.objectStore(t._dbInfo.storeName), c = !1, d = f.openKeyCursor();
                 d.onsuccess = function() {
-                  var g = d.result;
-                  if (!g) {
+                  var m = d.result;
+                  if (!m) {
                     i(null);
                     return;
                   }
-                  e === 0 || c ? i(g.key) : (c = !0, g.advance(e));
+                  e === 0 || c ? i(m.key) : (c = !0, m.advance(e));
                 }, d.onerror = function() {
                   n(d.error);
                 };
-              } catch (g) {
-                n(g);
+              } catch (m) {
+                n(m);
               }
             });
           }).catch(n);
@@ -750,28 +749,28 @@ var We = { exports: {} };
               $(e);
               var c = M[e.name], d = c.forages;
               s.close();
-              for (var g = 0; g < d.length; g++) {
-                var w = d[g];
+              for (var m = 0; m < d.length; m++) {
+                var w = d[m];
                 w._dbInfo.db = null, w._dbInfo.version = f;
               }
-              var R = new h(function(x, F) {
-                var P = I.open(e.name, f);
-                P.onerror = function(H) {
-                  var re = P.result;
+              var T = new h(function(x, F) {
+                var L = S.open(e.name, f);
+                L.onerror = function(H) {
+                  var re = L.result;
                   re.close(), F(H);
-                }, P.onupgradeneeded = function() {
-                  var H = P.result;
+                }, L.onupgradeneeded = function() {
+                  var H = L.result;
                   H.deleteObjectStore(e.storeName);
-                }, P.onsuccess = function() {
-                  var H = P.result;
+                }, L.onsuccess = function() {
+                  var H = L.result;
                   H.close(), x(H);
                 };
               });
-              return R.then(function(x) {
+              return T.then(function(x) {
                 c.db = x;
                 for (var F = 0; F < d.length; F++) {
-                  var P = d[F];
-                  P._dbInfo.db = x, U(P._dbInfo);
+                  var L = d[F];
+                  L._dbInfo.db = x, U(L._dbInfo);
                 }
               }).catch(function(x) {
                 throw (Y(e, x) || h.resolve()).catch(function() {
@@ -783,30 +782,30 @@ var We = { exports: {} };
             var f = M[e.name], c = f.forages;
             s.close();
             for (var d = 0; d < c.length; d++) {
-              var g = c[d];
-              g._dbInfo.db = null;
+              var m = c[d];
+              m._dbInfo.db = null;
             }
-            var w = new h(function(R, x) {
-              var F = I.deleteDatabase(e.name);
+            var w = new h(function(T, x) {
+              var F = S.deleteDatabase(e.name);
               F.onerror = function() {
-                var P = F.result;
-                P && P.close(), x(F.error);
+                var L = F.result;
+                L && L.close(), x(F.error);
               }, F.onblocked = function() {
                 console.warn('dropInstance blocked for database "' + e.name + '" until all open connections are closed');
               }, F.onsuccess = function() {
-                var P = F.result;
-                P && P.close(), R(P);
+                var L = F.result;
+                L && L.close(), T(L);
               };
             });
-            return w.then(function(R) {
-              f.db = R;
+            return w.then(function(T) {
+              f.db = T;
               for (var x = 0; x < c.length; x++) {
                 var F = c[x];
                 U(F._dbInfo);
               }
-            }).catch(function(R) {
-              throw (Y(e, R) || h.resolve()).catch(function() {
-              }), R;
+            }).catch(function(T) {
+              throw (Y(e, T) || h.resolve()).catch(function() {
+              }), T;
             });
           });
         }
@@ -829,7 +828,7 @@ var We = { exports: {} };
       function et() {
         return typeof openDatabase == "function";
       }
-      var K = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", tt = "~~local_forage_type~", _e = /^~~local_forage_type~([^~]+)~/, oe = "__lfsc__:", fe = oe.length, ce = "arbf", le = "blob", we = "si08", Ee = "ui08", Se = "uic8", Ie = "si16", Ne = "si32", Te = "ur16", Re = "ui32", xe = "fl32", De = "fl64", Ae = fe + ce.length, Be = Object.prototype.toString;
+      var K = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", tt = "~~local_forage_type~", _e = /^~~local_forage_type~([^~]+)~/, oe = "__lfsc__:", fe = oe.length, ce = "arbf", le = "blob", we = "si08", Ee = "ui08", Se = "uic8", Ie = "si16", Ne = "si32", Re = "ur16", Te = "ui32", xe = "fl32", De = "fl64", Ae = fe + ce.length, Be = Object.prototype.toString;
       function Ce(e) {
         var r = e.length * 0.75, t = e.length, o, i = 0, n, a, s, f;
         e[e.length - 1] === "=" && (r--, e[e.length - 2] === "=" && r--);
@@ -848,7 +847,7 @@ var We = { exports: {} };
         var t = "";
         if (e && (t = Be.call(e)), e && (t === "[object ArrayBuffer]" || e.buffer && Be.call(e.buffer) === "[object ArrayBuffer]")) {
           var o, i = oe;
-          e instanceof ArrayBuffer ? (o = e, i += ce) : (o = e.buffer, t === "[object Int8Array]" ? i += we : t === "[object Uint8Array]" ? i += Ee : t === "[object Uint8ClampedArray]" ? i += Se : t === "[object Int16Array]" ? i += Ie : t === "[object Uint16Array]" ? i += Te : t === "[object Int32Array]" ? i += Ne : t === "[object Uint32Array]" ? i += Re : t === "[object Float32Array]" ? i += xe : t === "[object Float64Array]" ? i += De : r(new Error("Failed to get type for BinaryArray"))), r(i + de(o));
+          e instanceof ArrayBuffer ? (o = e, i += ce) : (o = e.buffer, t === "[object Int8Array]" ? i += we : t === "[object Uint8Array]" ? i += Ee : t === "[object Uint8ClampedArray]" ? i += Se : t === "[object Int16Array]" ? i += Ie : t === "[object Uint16Array]" ? i += Re : t === "[object Int32Array]" ? i += Ne : t === "[object Uint32Array]" ? i += Te : t === "[object Float32Array]" ? i += xe : t === "[object Float64Array]" ? i += De : r(new Error("Failed to get type for BinaryArray"))), r(i + de(o));
         } else if (t === "[object Blob]") {
           var n = new FileReader();
           n.onload = function() {
@@ -884,11 +883,11 @@ var We = { exports: {} };
             return new Uint8ClampedArray(n);
           case Ie:
             return new Int16Array(n);
-          case Te:
+          case Re:
             return new Uint16Array(n);
           case Ne:
             return new Int32Array(n);
-          case Re:
+          case Te:
             return new Uint32Array(n);
           case xe:
             return new Float32Array(n);
@@ -941,7 +940,7 @@ var We = { exports: {} };
       }
       function it(e, r) {
         var t = this;
-        e = L(e);
+        e = O(e);
         var o = new h(function(i, n) {
           t.ready().then(function() {
             var a = t._dbInfo;
@@ -963,9 +962,9 @@ var We = { exports: {} };
             var a = t._dbInfo;
             a.db.transaction(function(s) {
               X(s, a, "SELECT * FROM " + a.storeName, [], function(f, c) {
-                for (var d = c.rows, g = d.length, w = 0; w < g; w++) {
-                  var R = d.item(w), x = R.value;
-                  if (x && (x = a.serializer.deserialize(x)), x = e(x, R.key, w + 1), x !== void 0) {
+                for (var d = c.rows, m = d.length, w = 0; w < m; w++) {
+                  var T = d.item(w), x = T.value;
+                  if (x && (x = a.serializer.deserialize(x)), x = e(x, T.key, w + 1), x !== void 0) {
                     i(x);
                     return;
                   }
@@ -981,16 +980,16 @@ var We = { exports: {} };
       }
       function Le(e, r, t, o) {
         var i = this;
-        e = L(e);
+        e = O(e);
         var n = new h(function(a, s) {
           i.ready().then(function() {
             r === void 0 && (r = null);
             var f = r, c = i._dbInfo;
-            c.serializer.serialize(r, function(d, g) {
-              g ? s(g) : c.db.transaction(function(w) {
+            c.serializer.serialize(r, function(d, m) {
+              m ? s(m) : c.db.transaction(function(w) {
                 X(w, c, "INSERT OR REPLACE INTO " + c.storeName + " (key, value) VALUES (?, ?)", [e, d], function() {
                   a(f);
-                }, function(R, x) {
+                }, function(T, x) {
                   s(x);
                 });
               }, function(w) {
@@ -1012,7 +1011,7 @@ var We = { exports: {} };
       }
       function ut(e, r) {
         var t = this;
-        e = L(e);
+        e = O(e);
         var o = new h(function(i, n) {
           t.ready().then(function() {
             var a = t._dbInfo;
@@ -1123,21 +1122,21 @@ var We = { exports: {} };
         }).then(function(n) {
           return new h(function(a, s) {
             n.db.transaction(function(f) {
-              function c(R) {
+              function c(T) {
                 return new h(function(x, F) {
-                  f.executeSql("DROP TABLE IF EXISTS " + R, [], function() {
+                  f.executeSql("DROP TABLE IF EXISTS " + T, [], function() {
                     x();
-                  }, function(P, H) {
+                  }, function(L, H) {
                     F(H);
                   });
                 });
               }
-              for (var d = [], g = 0, w = n.storeNames.length; g < w; g++)
-                d.push(c(n.storeNames[g]));
+              for (var d = [], m = 0, w = n.storeNames.length; m < w; m++)
+                d.push(c(n.storeNames[m]));
               h.all(d).then(function() {
                 a();
-              }).catch(function(R) {
-                s(R);
+              }).catch(function(T) {
+                s(T);
               });
             }, function(f) {
               s(f);
@@ -1200,7 +1199,7 @@ var We = { exports: {} };
       }
       function wt(e, r) {
         var t = this;
-        e = L(e);
+        e = O(e);
         var o = t.ready().then(function() {
           var i = t._dbInfo, n = localStorage.getItem(i.keyPrefix + e);
           return n && (n = i.serializer.deserialize(n)), n;
@@ -1212,9 +1211,9 @@ var We = { exports: {} };
           for (var i = t._dbInfo, n = i.keyPrefix, a = n.length, s = localStorage.length, f = 1, c = 0; c < s; c++) {
             var d = localStorage.key(c);
             if (d.indexOf(n) === 0) {
-              var g = localStorage.getItem(d);
-              if (g && (g = i.serializer.deserialize(g)), g = e(g, d.substring(a), f++), g !== void 0)
-                return g;
+              var m = localStorage.getItem(d);
+              if (m && (m = i.serializer.deserialize(m)), m = e(m, d.substring(a), f++), m !== void 0)
+                return m;
             }
           }
         });
@@ -1248,18 +1247,18 @@ var We = { exports: {} };
         });
         return y(t, e), t;
       }
-      function Tt(e, r) {
+      function Rt(e, r) {
         var t = this;
-        e = L(e);
+        e = O(e);
         var o = t.ready().then(function() {
           var i = t._dbInfo;
           localStorage.removeItem(i.keyPrefix + e);
         });
         return y(o, r), o;
       }
-      function Rt(e, r, t) {
+      function Tt(e, r, t) {
         var o = this;
-        e = L(e);
+        e = O(e);
         var i = o.ready().then(function() {
           r === void 0 && (r = null);
           var n = r;
@@ -1271,8 +1270,8 @@ var We = { exports: {} };
               else
                 try {
                   localStorage.setItem(f.keyPrefix + e, c), a(n);
-                } catch (g) {
-                  (g.name === "QuotaExceededError" || g.name === "NS_ERROR_DOM_QUOTA_REACHED") && s(g), s(g);
+                } catch (m) {
+                  (m.name === "QuotaExceededError" || m.name === "NS_ERROR_DOM_QUOTA_REACHED") && s(m), s(m);
                 }
             });
           });
@@ -1300,8 +1299,8 @@ var We = { exports: {} };
         _support: gt(),
         iterate: Et,
         getItem: wt,
-        setItem: Rt,
-        removeItem: Tt,
+        setItem: Tt,
+        removeItem: Rt,
         clear: _t,
         length: Nt,
         key: St,
@@ -1379,9 +1378,9 @@ var We = { exports: {} };
                 s(c);
                 return;
               }
-              for (var d = ve.concat("_initStorage"), g = 0, w = d.length; g < w; g++) {
-                var R = d[g], x = !Bt(ie, R);
-                if ((x || t[R]) && typeof t[R] != "function") {
+              for (var d = ve.concat("_initStorage"), m = 0, w = d.length; m < w; m++) {
+                var T = d[m], x = !Bt(ie, T);
+                if ((x || t[T]) && typeof t[T] != "function") {
                   s(c);
                   return;
                 }
@@ -1398,10 +1397,10 @@ var We = { exports: {} };
                 }
               };
               F();
-              var P = function(re) {
+              var L = function(re) {
                 te[f] && console.info("Redefining LocalForage driver: " + f), te[f] = t, Fe[f] = re, a();
               };
-              "_support" in t ? t._support && typeof t._support == "function" ? t._support().then(P, s) : P(!!t._support) : P(!0);
+              "_support" in t ? t._support && typeof t._support == "function" ? t._support().then(L, s) : L(!!t._support) : L(!0);
             } catch (H) {
               s(H);
             }
@@ -1427,36 +1426,36 @@ var We = { exports: {} };
           function s() {
             n._config.driver = n.driver();
           }
-          function f(g) {
-            return n._extend(g), s(), n._ready = n._initStorage(n._config), n._ready;
+          function f(m) {
+            return n._extend(m), s(), n._ready = n._initStorage(n._config), n._ready;
           }
-          function c(g) {
+          function c(m) {
             return function() {
               var w = 0;
-              function R() {
-                for (; w < g.length; ) {
-                  var x = g[w];
-                  return w++, n._dbInfo = null, n._ready = null, n.getDriver(x).then(f).catch(R);
+              function T() {
+                for (; w < m.length; ) {
+                  var x = m[w];
+                  return w++, n._dbInfo = null, n._ready = null, n.getDriver(x).then(f).catch(T);
                 }
                 s();
                 var F = new Error("No available storage method found.");
                 return n._driverSet = h.reject(F), n._driverSet;
               }
-              return R();
+              return T();
             };
           }
           var d = this._driverSet !== null ? this._driverSet.catch(function() {
             return h.resolve();
           }) : h.resolve();
           return this._driverSet = d.then(function() {
-            var g = a[0];
-            return n._dbInfo = null, n._ready = null, n.getDriver(g).then(function(w) {
+            var m = a[0];
+            return n._dbInfo = null, n._ready = null, n.getDriver(m).then(function(w) {
               n._driver = w._driver, s(), n._wrapLibraryMethodsWithReady(), n._initDriver = c(a);
             });
           }).catch(function() {
             s();
-            var g = new Error("No available storage method found.");
-            return n._driverSet = h.reject(g), n._driverSet;
+            var m = new Error("No available storage method found.");
+            return n._driverSet = h.reject(m), n._driverSet;
           }), A(this._driverSet, o, i), this._driverSet;
         }, e.prototype.supports = function(t) {
           return !!Fe[t];
@@ -1475,21 +1474,21 @@ var We = { exports: {} };
           return new e(t);
         }, e;
       }(), Mt = new Pt();
-      m.exports = Mt;
+      g.exports = Mt;
     }, { 3: 3 }] }, {}, [4])(4);
   });
 })(We);
-var Xt = We.exports;
-const ke = /* @__PURE__ */ Kt(Xt);
+var Gt = We.exports;
+const ke = /* @__PURE__ */ Qt(Gt);
 class jt {
   constructor({ root: u, config: l = {} }) {
     k(this, "getPositionStyles", function(u) {
-      const { w: l, h: m, x: S, y: p } = u;
+      const { w: l, h: g, x: I, y: p } = u;
       return [
         "position: absolute",
         `width:${l}%`,
-        `height:${m}%`,
-        `left:${S}%`,
+        `height:${g}%`,
+        `left:${I}%`,
         `top:${p}%`
       ];
     });
@@ -1507,30 +1506,30 @@ class jt {
       l.borderRightColor !== "rgba(0, 0, 0, 0)" || l.borderBottomColor !== "rgba(0, 0, 0, 0)" || l.borderLeftColor !== "rgba(0, 0, 0, 0)" || l.borderTopWidth !== "0px" || l.borderRightWidth !== "0px" || l.borderBottomWidth !== "0px" || l.borderLeftWidth !== "0px" || l.borderTopStyle !== "none" || l.borderRightStyle !== "none" || l.borderBottomStyle !== "none" || l.borderLeftStyle !== "none";
     });
     k(this, "getPosition", function(u, l) {
-      let { width: m, height: S, top: p, left: _ } = u.getBoundingClientRect();
-      return m > 5 && S > 5 && p < RT && _ < RL && _ + m < RL + RW ? (m = Number((m / RW * 100).toFixed(2)), S = Number((S / RH * 100).toFixed(2)), _ = Number(((_ - RL) / RW * 100).toFixed(2)), p = Number(((p - RT) / RH * 100).toFixed(2)), { w: m, h: S, y: p, x: _ }) : null;
+      let { width: g, height: I, top: p, left: _ } = u.getBoundingClientRect();
+      return g > 5 && I > 5 && p < RT && _ < RL && _ + g < RL + RW ? (g = Number((g / RW * 100).toFixed(2)), I = Number((I / RH * 100).toFixed(2)), _ = Number(((_ - RL) / RW * 100).toFixed(2)), p = Number(((p - RT) / RH * 100).toFixed(2)), { w: g, h: I, y: p, x: _ }) : null;
     });
     k(this, "addBgs", function({ node: u, skeId: l }) {
-      const m = this.getPosition(u);
-      if (!m)
+      const g = this.getPosition(u);
+      if (!g)
         return null;
-      const S = l || "", { borderRadius: p, background: _, backgroundColor: b } = getComputedStyle(
+      const I = l || "", { borderRadius: p, background: _, backgroundColor: b } = getComputedStyle(
         u,
         null
-      ), N = this.getPositionStyles(m).concat([
+      ), N = this.getPositionStyles(g).concat([
         `background-color:${b}`,
         `border-radius:${p}`
       ]).join(";");
-      this.Bgs += `<div data-ske-id="${S}" style="${N}"></div>`;
+      this.Bgs += `<div data-ske-id="${I}" style="${N}"></div>`;
     });
     k(this, "addBorders", function({ node: u, skeId: l }) {
-      const m = this.getPosition(u);
-      if (!m)
+      const g = this.getPosition(u);
+      if (!g)
         return null;
-      const S = l || "", p = this.getPositionStyles(m), {
+      const I = l || "", p = this.getPositionStyles(g), {
         borderRadius: _,
         backgroundColor: b,
-        borderWidth: I,
+        borderWidth: S,
         borderStyle: N,
         borderColor: B
         //变成灰色系列
@@ -1538,17 +1537,17 @@ class jt {
         `background-color:${b}`,
         `border-radius:${_}`
       ]).concat([
-        `border-width:${I}`,
+        `border-width:${S}`,
         `border-style:${N}`,
         "border-color:#f4f4f4",
         `border-radius:${_}`
       ]).join(";");
-      this.Borders += `<div  data-ske-id="${S}" style="${h}"></div>`;
+      this.Borders += `<div  data-ske-id="${I}" style="${h}"></div>`;
     });
-    k(this, "mergeDiv", function({ node: u, skeId: l, pid: m, position: S }) {
+    k(this, "mergeDiv", function({ node: u, skeId: l, pid: g, position: I }) {
       const { borderRadius: p } = getComputedStyle(u, null), _ = {
-        position: S,
-        pid: m,
+        position: I,
+        pid: g,
         skeId: l,
         borderRadius: p
       };
@@ -1556,61 +1555,61 @@ class jt {
         this.SkeBoxes.push(_);
         return;
       }
-      const b = this.SkeBoxes[this.SkeBoxes.length - 1], { w: I, h: N, x: B, y: h } = b.position, { borderRadius: y } = b, { w: A, h: L, x: W, y: C } = S, V = Math.abs(B + I - W), M = Math.abs(h + N - C);
-      if ((V < 0.5 || M < 0.5) && m == b.pid) {
+      const b = this.SkeBoxes[this.SkeBoxes.length - 1], { w: S, h: N, x: B, y: h } = b.position, { borderRadius: y } = b, { w: A, h: O, x: W, y: C } = I, V = Math.abs(B + S - W), M = Math.abs(h + N - C);
+      if ((V < 0.5 || M < 0.5) && g == b.pid) {
         let Z = {
           x: Math.min(B, W),
           y: Math.min(h, C),
-          w: Math.max(B + I, W + A) - Math.min(B, W),
-          h: Math.max(h + N, C + L) - Math.min(h, C)
+          w: Math.max(B + S, W + A) - Math.min(B, W),
+          h: Math.max(h + N, C + O) - Math.min(h, C)
         };
         this.SkeBoxes[SkeBoxes.length - 1] = {
           position: Z,
           borderRadius: Math.max(y, p),
           //都使用第一个borderRaduis
           skeId: l,
-          pid: m
+          pid: g
         };
         return;
       }
       this.SkeBoxes.push(_);
     });
-    k(this, "createDiv", function({ node: u, skeId: l, pid: m, isText: S }) {
+    k(this, "createDiv", function({ node: u, skeId: l, pid: g, isText: I }) {
       if (!u)
         return;
-      const p = this.getPosition(u, S);
-      p && this.mergeDiv({ node: u, skeId: l, pid: m, position: p });
+      const p = this.getPosition(u, I);
+      p && this.mergeDiv({ node: u, skeId: l, pid: g, position: p });
     });
-    k(this, "handleLeafNode", function({ node: u, skeId: l, pid: m }) {
-      u.nodeType === Node.ELEMENT_NODE ? u && this.createDiv({ node: u, skeId: l, pid: m }) : u.nodeType === Node.TEXT_NODE ? u && this.createDiv({ node: u.parentElement, skeId: l, pid: m }) : (u.nodeType, Node.COMMENT_NODE);
+    k(this, "handleLeafNode", function({ node: u, skeId: l, pid: g }) {
+      u.nodeType === Node.ELEMENT_NODE ? u && this.createDiv({ node: u, skeId: l, pid: g }) : u.nodeType === Node.TEXT_NODE ? u && this.createDiv({ node: u.parentElement, skeId: l, pid: g }) : (u.nodeType, Node.COMMENT_NODE);
     });
     k(this, "handleIsInEnumableTags", function({ node: u }) {
       let l = !1;
-      return u.nodeType != Node.ELEMENT_NODE || (u.childNodes && Array.from(u.childNodes).some((m) => m.nodeType === Node.TEXT_NODE) && (l = !0), u.tagName === "svg" && (l = !0), u.tagName === "A" && (l = !0), (u.tagName === "IMG" || /base64/.test(u.src) || u.tagName === "FIGURE") && (l = !0), (u.tagName === "INPUT" || u.tagName == "TEXTAREA") && (l = !0), u.tagName === "CANVAS" && (l = !0), u.nodeType === Node.ELEMENT_NODE && (u.tagName === "BUTTON" || u.tagName === "A" && u.getAttribute("role") === "button") && (l = !0)), l;
+      return u.nodeType != Node.ELEMENT_NODE || (u.childNodes && Array.from(u.childNodes).some((g) => g.nodeType === Node.TEXT_NODE) && (l = !0), u.tagName === "svg" && (l = !0), u.tagName === "A" && (l = !0), (u.tagName === "IMG" || /base64/.test(u.src) || u.tagName === "FIGURE") && (l = !0), (u.tagName === "INPUT" || u.tagName == "TEXTAREA") && (l = !0), u.tagName === "CANVAS" && (l = !0), u.nodeType === Node.ELEMENT_NODE && (u.tagName === "BUTTON" || u.tagName === "A" && u.getAttribute("role") === "button") && (l = !0)), l;
     });
     k(this, "getIsVisible", function(u) {
       const l = window.getComputedStyle(u);
       return l.display !== "none" && l.visibility !== "hidden" && l.opacity !== "0" && u.offsetWidth > 0 && u.offsetHeight > 0;
     });
-    k(this, "performTraverseNode", function({ node: u, skeId: l, pid: m }) {
+    k(this, "performTraverseNode", function({ node: u, skeId: l, pid: g }) {
       if (!u || isInterrupted || !this.getIsVisible(u))
         return;
-      if (u.childNodes && Array.from(u.childNodes).some((I) => I.nodeType === Node.TEXT_NODE)) {
-        this.createDiv({ node: u, skeId: l, pid: m, isText: !0 });
+      if (u.childNodes && Array.from(u.childNodes).some((S) => S.nodeType === Node.TEXT_NODE)) {
+        this.createDiv({ node: u, skeId: l, pid: g, isText: !0 });
         return;
       }
       const p = this.handleIsInEnumableTags({ node: u });
       if (p) {
-        this.createDiv({ node: u, skeId: l, pid: m, isInEnumableTags: p });
+        this.createDiv({ node: u, skeId: l, pid: g, isInEnumableTags: p });
         return;
       }
       if (this.isBackgroundSet(u) && this.addBgs({ node: u, skeId: l }), this.hasBorder(u) && this.addBorders({ node: u, skeId: l }), !u.hasChildNodes) {
-        this.handleLeafNode({ node: u, skeId: l, pid: m });
+        this.handleLeafNode({ node: u, skeId: l, pid: g });
         return;
       }
-      const _ = u.childNodes, b = m++;
-      for (let I = 0; I < _.length; I++) {
-        const N = _[I], B = l + N.id;
+      const _ = u.childNodes, b = g++;
+      for (let S = 0; S < _.length; S++) {
+        const N = _[S], B = l + N.id;
         this.nodeQueue.push({
           node: N,
           skeId: B,
@@ -1621,14 +1620,14 @@ class jt {
     k(this, "saveSke", function() {
       if (this.isInterrupted)
         return;
-      const u = this.SkeBoxes.reduce((S, p) => {
-        const { skeId: _, position: b, borderRadius: I } = p, B = this.getPositionStyles(b).concat([
-          `border-radius:${I}`
+      const u = this.SkeBoxes.reduce((I, p) => {
+        const { skeId: _, position: b, borderRadius: S } = p, B = this.getPositionStyles(b).concat([
+          `border-radius:${S}`
         ]);
-        return S + `<div data-ske-id="${_ || ""}" class="skeleton-common" 
+        return I + `<div data-ske-id="${_ || ""}" class="skeleton-common" 
         style="${B.join(";")}" ></div>`;
-      }, ""), l = this.Bgs + this.Borders + u, m = document.createElement("div");
-      return m.style.position = "relative", m.style.minWidth = `${this.minW}px`, m.style.minHeight = `${this.minH}px`, m.style.maxWidth = `${this.maxW}px`, m.innerHTML = l, this.putCacheDOM(m), this.insertCacheDOM(m), this.insertCss(), l;
+      }, ""), l = this.Bgs + this.Borders + u, g = document.createElement("div");
+      return g.style.position = "relative", g.style.minWidth = `${this.minW}px`, g.style.minHeight = `${this.minH}px`, g.style.maxWidth = `${this.maxW}px`, g.innerHTML = l, this.putCacheDOM(g), this.insertCacheDOM(g), this.insertCss(), l;
     });
     k(this, "performWorkUnit", function() {
       if (!this.isInterrupted) {
@@ -1636,7 +1635,7 @@ class jt {
           this.saveSke();
           return;
         }
-        Gt((u) => {
+        Vt((u) => {
           let l;
           for (; (l = this.nodeQueue.shift()) && !u.didTimeout && u.timeRemaining() > 0; )
             this.performTraverseNode(l);
@@ -1646,14 +1645,14 @@ class jt {
     });
     this.nodeQueue = [{ node: u, skeId: u.id, pid: 0 }], this.isInterrupted = !1, this.SkeBoxes = [], this.Bgs = "", this.Borders = "";
     const {
-      width: m,
-      height: S,
+      width: g,
+      height: I,
       top: p,
       left: _
     } = u.getBoundingClientRect();
-    this.minW = l.minW || m, this.maxW = l.maxW || 1600, this.minH = l.minH || S;
-    const I = window.location.origin + window.location.pathname + "-" + id;
-    this.cacheKey = I;
+    this.minW = l.minW || g, this.maxW = l.maxW || 1600, this.minH = l.minH || I;
+    const S = window.location.origin + window.location.pathname + "-" + id;
+    this.cacheKey = S;
   }
   putCacheDOM(u) {
     u && ke.setItem(
@@ -1700,22 +1699,17 @@ class jt {
     `, document.head.append(u);
   }
 }
-function Jt({ id: O }) {
-  const l = window.location.origin + window.location.pathname + "-" + O;
-  let m;
+function Jt({ id: P }) {
+  const l = window.location.origin + window.location.pathname + "-" + P;
+  let g;
   try {
-    m = JSON.parse(ke.getItem(l) || "{}");
-  } catch (S) {
-    console.log(S);
+    g = JSON.parse(ke.getItem(l) || "{}");
+  } catch (I) {
+    console.log(I);
   }
-  return m;
+  return g;
 }
-const tr = ({ id: O, loading: u, children: l }) => {
-  const m = Jt(O);
-  return zt(() => {
-    new jt({ id: O, root }).performTraverseNode();
-  }, []), u && m ? /* @__PURE__ */ Yt.createElement("div", { dangerouslySetInnerHTML: { __html: m } }) : l;
-};
 export {
-  tr as default
+  jt as default,
+  Jt as getCacheDOM
 };
